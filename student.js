@@ -1,10 +1,21 @@
 const http = require('http')
 
 const server = http.createServer((req,res)=>{
-    console.log('server running')
+    console.log(req.url)
     res.setHeader('Content-Type','text/html')
-
-    res.write('<h1>tony stark</h1>')
+    switch (req.url) {
+        case '/home':
+            res.write('Welcome to Home page')
+            break;
+        case '/about':
+            res.write('Welcome to About page')
+            break;
+        case '/node':
+            res.write('Welcome to Node page')
+            break;
+        default:
+            break;
+    }
     res.end()
 
 
