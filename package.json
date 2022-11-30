@@ -1,0 +1,29 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "learn to excel",
+  "main": "student.js",
+  
+  "scripts": {
+    "start":"nodemon student.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akinGC/backend.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "backend"
+  ],
+  "author": "akins",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akinGC/backend/issues"
+  },
+  "homepage": "https://github.com/akinGC/backend#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
