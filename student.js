@@ -1,24 +1,19 @@
 const http = require('http')
+const fs = require('fs')
 
 const server = http.createServer((req,res)=>{
-    console.log(req.url)
     res.setHeader('Content-Type','text/html')
-    switch (req.url) {
-        case '/home':
-            res.write('Welcome to Home page')
-            break;
-        case '/about':
-            res.write('Welcome to About page')
-            break;
-        case '/node':
-            res.write('Welcome to Node page')
-            break;
-        default:
-            break;
+
+    if(req.url==='/'){
+        res.write('<form method="post"action="/message"><input type="text"name="message"/><button type="submit">Add</button></form>')
+        res.end()
     }
-    res.end()
-
-
+    else if(req.url==='/message'){
+        console.log(req.body)
+        res.write(req.body)
+        res.end()
+    }
 })
-server.listen(3000)
 
+
+server.listen(3000)
