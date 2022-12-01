@@ -1,17 +1,30 @@
-const http = require('http')
-const express = require('express')
 
+const express = require('express')
+const body = require('body-parser')
 const app = express()
 
-app.use((req, res, next)=>{
-    console.log('frst')
-    res.write('first')
+app.use(body.urlencoded({extended:false}))
+app.use('/product',(req, res, next)=>{
+    res.setHeader('Content-Type','text/html')
+    
+    res.write('<form action=`/reply`method=`POST`><input name=`details`type=`text`/>')
+    res.write('<br/><br/>')
+    res.write('<input name=`color`type=`text`/><button type=`submit` >submit</button>')
+    res.write('</form>')
     res.end()
-    next()
 })
-app.use((req, res, next)=>{
-    console.log('scnd')
+app.use('/reply',(req, res, next)=>{
+   console.log('hai')
+    console.log(req.body)
+    res.redirect('/')
+    
+   
+   
 })
-const server = http.createServer(app)
+app.use('/',(req, res, next)=>{
+    res.send('hai there in mode!')
+    
+})
 
-server.listen(3000)
+
+app.listen(3000)
